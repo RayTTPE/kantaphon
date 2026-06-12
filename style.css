@@ -69,6 +69,7 @@ nav{
 }
 
 .dropdown{
+    z-index: 100;
     position: absolute;
     top: 0;
     transform: translateY(-500px);
@@ -187,6 +188,7 @@ height: 90vh;
     border-radius: 100%;
     overflow: hidden;
     box-shadow: 0 0 50px #b711e0;
+    z-index: -1;
 }
 
 .main-container .image img{
