@@ -7,77 +7,254 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link rel="stylesheet" href="style.css">
+  <style>
+    html {
+      scroll-behavior: smooth; /* ทำให้เลื่อนนุ่มนวล */
+    }
+  </style>
 </head>
 <body>
+  <!-- Navigation -->
   <nav>
-    <div class="logo"data-aos="zoom-in" data-aos-duration="1500">
+    <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
       Kantaphon <span>Leng</span>
     </div>
     <div class="nav-container">
       <div class="links">
-        <a href=""data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Home</a>
-        <a href=""data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Skills</a>
-        <a href=""data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Introduction</a>
-        <a href=""data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Service</a>
-        <a href=""data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Contact</a>
+        <a href="#home" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Home</a>
+        <a href="#skills" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">Skills</a>
+        <a href="#about" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">About Me</a>
+        <a href="#service" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">Service</a>
+        <a href="#"id="contactNavBtn"data-aos="fade-up"data-aos-duration="1500"data-aos-delay="500">Contact</a>
       </div>
     </div>
-    <!-- ปุ่มเปิดเมนู -->
     <i class="fa-solid fa-bars ham" onclick="openmenu()"></i>
     <div class="dropdown">
-      <div class="links">
-        <a href="">Home</a>
-        <a href="">Skills</a>
-        <a href="">Introduction</a>
-        <a href="">Service</a>
-        <a href="">Contact</a>
-        <!-- ปุ่มปิดเมนู -->
-        <i class="fa-solid fa-xmark cancel" onclick="closemenu()"></i>
-      </div>
+    <div class="links">
+      <a href="#home" onclick="closemenu()">Home</a>
+      <a href="#skills" onclick="closemenu()">Skills</a>
+      <a href="#about" onclick="closemenu()">About Me</a>
+      <a href="#service" onclick="closemenu()">Service</a>
+      <li><a href="#contact" onclick="closemenu()" id="contactMenuBtn" style="cursor:pointer;">Contact</a></li>
+      <i class="fa-solid fa-xmark cancel"
+        onclick="closemenu()"></i>
     </div>
+  </div>
   </nav>
 
-  <section>
+  <!-- Home Section -->
+  <section id="home">
     <div class="main-container">
       <div class="content">
-        <h1 data-aos="fade-right" data-aos-duration="1500" data-aos-delay="600">สวัสดีครับ ผม <span>Kantaphon</span></h1>
-        <div data-aos="fade-left" data-aos-duration="1500" data-aos-delay="800" class="typewriter">I'm a <span class="typewriter-text"></span><label for="">|</label></div>
-        <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1000">Designing the system through to post‑delivery support – Elevating professionalism through continuous learning.</p>
-        <div class="social-links">
-          <i class="fa-brands fa-github" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1200"></i>
-          <i class="fa-brands fa-facebook" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1300"></i>
-          <i class="fa-brands fa-instagram" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1400"></i>
-          <i class="fa-brands fa-line" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500"></i>
+        <h1 data-aos="fade-right" data-aos-duration="1500" data-aos-delay="600">
+          สวัสดีครับ ผม <span>Kantaphon</span>
+        </h1>
+        <div data-aos="fade-left" data-aos-duration="1500" data-aos-delay="800" class="typewriter">
+          I'm a <span class="typewriter-text"></span><label>|</label>
         </div>
-        <button data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1700">Contact me</button>
+        <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1000">
+          Designing the system through to post‑delivery support – Elevating professionalism through continuous learning.
+        </p>
+        <div class="social-links">
+          <i class="fa-brands fa-github" data-aos="fade-up" data-aos-delay="1200"></i>
+          <i class="fa-brands fa-facebook" data-aos="fade-up" data-aos-delay="1300"></i>
+          <i class="fa-brands fa-instagram" data-aos="fade-up" data-aos-delay="1400"></i>
+          <i class="fa-brands fa-line" data-aos="fade-up" data-aos-delay="1500"></i>
+        </div>
+        <button data-aos="zoom-in" data-aos-delay="1700" class="btn" id="contactOpenBtn" style="border:none;cursor:pointer;">Contact me</button>
       </div>
       <div class="image" data-aos="zoom-in" data-aos-duration="2000">
         <img src="Ray.jpg" alt="">
       </div>
     </div>
   </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <h2 data-aos="fade-up">About Me</h2>
+      <p data-aos="fade-up" data-aos-delay="200">
+        สวัสดีครับ ผมกันตภณ (เล้ง)
+        เป็นนักพัฒนาเว็บไซต์และระบบ AI ที่ชื่นชอบการเรียนรู้ด้วยตนเอง
+        และหลงใหลในการสร้างระบบที่สามารถนำไปใช้งานได้จริง
+        ผมเริ่มต้นจากการศึกษาด้าน Python, HTML, CSS และ JavaScript
+        ด้วยตนเอง จนสามารถพัฒนาเว็บไซต์ ระบบฐานข้อมูล
+        และเครื่องมืออัตโนมัติต่าง ๆ ได้อย่างต่อเนื่อง
+      </p>
+      <p data-aos="fade-up" data-aos-delay="300">
+        ในช่วงที่ผ่านมา ผมได้ทดลองพัฒนาโปรเจกต์หลากหลายรูปแบบ
+        ไม่ว่าจะเป็นระบบ AI Local Host,
+        Voice Assistant,
+        Dashboard แบบ Real-Time,
+        ระบบจัดเก็บข้อมูลด้วย SQLite และ Supabase
+        รวมถึงการเชื่อมต่อ REST API
+        เพื่อสร้างระบบที่ตอบโจทย์การใช้งานจริง
+      </p>
+      <p data-aos="fade-up" data-aos-delay="400">
+        ปัจจุบันผมสนใจด้าน Web Development,
+        AI Integration,
+        Automation และ Full Stack Development
+        พร้อมเปิดรับการเรียนรู้เทคโนโลยีใหม่ ๆ อยู่เสมอ
+        เพื่อพัฒนาทักษะและสร้างโซลูชันที่มีประสิทธิภาพมากยิ่งขึ้น
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <h2 data-aos="fade-up">Skills</h2>
+    <div class="skills-grid">
+    <div class="skill-card" data-aos="zoom-in">
+      <i class="fa-brands fa-html5"></i>
+      <h3>HTML5</h3>
+    </div>
+
+    <div class="skill-card" data-aos="zoom-in">
+      <i class="fa-brands fa-css3-alt"></i>
+      <h3>CSS3</h3>
+    </div>
+
+    <div class="skill-card" data-aos="zoom-in">
+      <i class="fa-brands fa-js"></i>
+      <h3>JavaScript</h3>
+    </div>
+
+    <div class="skill-card" data-aos="zoom-in">
+      <i class="fa-brands fa-python"></i>
+      <h3>Python</h3>
+    </div>
+
+    <div class="skill-card" data-aos="zoom-in">
+      <i class="fa-solid fa-database"></i>
+      <h3>SQLite</h3>
+    </div>
+
+    <div class="skill-card" data-aos="zoom-in">
+      <i class="fa-solid fa-server"></i>
+      <h3>Supabase</h3>
+    </div>
+
+    <div class="skill-card" data-aos="zoom-in">
+      <i class="fa-solid fa-robot"></i>
+      <h3>Ollama</h3>
+    </div>
+
+    <div class="skill-card" data-aos="zoom-in">
+      <i class="fa-solid fa-microchip"></i>
+      <h3>Streamlit</h3>
+    </div>
+
+    <div class="skill-card" data-aos="zoom-in">
+      <i class="fa-brands fa-github"></i>
+      <h3>GitHub</h3>
+    </div>
+
+    <div class="skill-card" data-aos="zoom-in">
+      <i class="fa-solid fa-link"></i>
+      <h3>REST API</h3>
+    </div>
+
+    <div class="skill-card" data-aos="zoom-in">
+      <i class="fa-solid fa-volume-high"></i>
+      <h3>Voice AI</h3>
+    </div>
+
+    <div class="skill-card" data-aos="zoom-in">
+      <i class="fa-solid fa-chart-line"></i>
+      <h3>Dashboard</h3>
+    </div>
+
+  </div>
+
+  <!-- Service Section -->
+  <section id="service" class="service-section">
+
+  <h2 data-aos="zoom-in">
+    <span>⚡ My Services ⚡</span>
+  </h2>
+
+  <div class="service-container">
+
+    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+      <i class="fa-solid fa-globe"></i>
+      <h3>Website Development</h3>
+      <p>
+        พัฒนาเว็บไซต์ Responsive รองรับทุกอุปกรณ์
+        พร้อมออกแบบ UI ที่ทันสมัยและใช้งานง่าย
+      </p>
+    </div>
+
+    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+      <i class="fa-solid fa-robot"></i>
+      <h3>AI Integration</h3>
+      <p>
+        เชื่อมต่อ AI เข้ากับธุรกิจ เช่น Chatbot,
+        Voice Assistant และ Automation Workflow
+      </p>
+    </div>
+
+    <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+      <i class="fa-solid fa-chart-line"></i>
+      <h3>Dashboard System</h3>
+      <p>
+        พัฒนาระบบ Dashboard แบบ Real-Time
+        พร้อมเชื่อมต่อฐานข้อมูลและ API
+      </p>
+    </div>
+
+    <div class="service-card" data-aos="fade-up" data-aos-delay="700">
+      <i class="fa-solid fa-wrench"></i>
+      <h3>After‑deploy</h3>
+      <p>
+        ปรับปรุงหลังส่งมอบงาน
+        หรือเพิ่มระบบตามความต้องการและงบประมาณของลูกค้า
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- Contact Section -->
+
+
+
+  <div id="contactModal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+      <button class="close" aria-label="Close">&times;</button>
+      <h3 id="contactTitle">Contact me</h3>
+      <p>📞 Tel: 097-160-5959</p>
+      <p>📱 Email: Kantaphon.masu@bumail.net</p>
+      <p>🌐 FB: Saravud Ray Masuwan</p>
+      <a href="#" class="btn" id="openLineBtn">Add LINE</a>
+    </div>
+  </div>
+
+  <div id="lineModal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="lineTitle">
+      <button class="close" aria-label="Close">&times;</button>
+      <h3 id="lineTitle">Add LINE</h3>
+      <p>สแกน QR หรือเพิ่มไอดีด้านล่าง</p>
+      <div style="text-align:center;margin:18px 0;">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Sample+QR+Code+for+Testing" alt="QR code" style="width:200px;height:200px;object-fit:cover;border-radius:8px;">
+      </div>
+      <p style="word-break:break-word;">LINE ID: <strong>RayTBRP</strong></p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
   <script>
     function openmenu() {
-      const navbar = document.querySelector(".dropdown");
-      navbar.style.transform = "translateY(0)";
+      document.querySelector(".dropdown").style.transform = "translateY(0)";
     }
-
     function closemenu() {
-      const navbar = document.querySelector(".dropdown");
-      navbar.style.transform = "translateY(-500px)";
+      document.querySelector(".dropdown").style.transform = "translateY(-500px)";
     }
 
-    const texts = [
-      "DEVELOPER",
-      "PROGRAMMER",
-      "DESIGNER"
-    ];
-
+    const texts = ["SELF-TAUGHT DEVELOPER","AI ENTHUSIAST","FULL STACK LEARNER","WEB DEVELOPER","SYSTEM BUILDER"];
     const speed = 100;
     const textElement = document.querySelector(".typewriter-text");
-
-    let textIndex = 0;
-    let characterIndex = 0;
+    let textIndex = 0, characterIndex = 0;
 
     function typeWriter() {
       if (characterIndex < texts[textIndex].length) {
@@ -85,10 +262,9 @@
         characterIndex++;
         setTimeout(typeWriter, speed);
       } else {
-        setTimeout(eraseText, 1000); // รอหน่อยก่อนลบ
+        setTimeout(eraseText, 1000);
       }
     }
-
     function eraseText() {
       if (textElement.innerHTML.length > 0) {
         textElement.innerHTML = textElement.innerHTML.slice(0, -1);
@@ -99,12 +275,104 @@
         setTimeout(typeWriter, 500);
       }
     }
-
     window.onload = typeWriter;
   </script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init({offset:0});
-  </script>
+  <script>AOS.init({offset:0});</script>
+
+<script>
+const contactModal =
+document.getElementById("contactModal");
+
+const contactBtn =
+document.getElementById("contactOpenBtn");
+
+const contactNavBtn =
+document.getElementById("contactNavBtn");
+
+const contactMenuBtn =
+document.getElementById("contactMenuBtn");
+
+const openLineBtn =
+document.getElementById("openLineBtn");
+
+const lineModal =
+document.getElementById("lineModal");
+
+const closeButtons =
+document.querySelectorAll(".close");
+
+/* ---------- CONTACT ---------- */
+
+function openContact(){
+    contactModal.classList.add("active");
+}
+
+function closeContact(){
+    contactModal.classList.remove("active");
+}
+
+/* ---------- LINE ---------- */
+
+function openLine(){
+    lineModal.classList.add("active");
+}
+
+function closeLine(){
+    lineModal.classList.remove("active");
+}
+
+/* ---------- BUTTONS ---------- */
+
+contactBtn.addEventListener("click", openContact);
+
+contactNavBtn.addEventListener("click",(e)=>{
+    e.preventDefault();
+    openContact();
+});
+
+contactMenuBtn.addEventListener("click",(e)=>{
+    e.preventDefault();
+    closemenu();
+    openContact();
+});
+
+openLineBtn.addEventListener("click",(e)=>{
+    e.preventDefault();
+    openLine();
+});
+
+closeButtons.forEach(btn=>{
+    btn.addEventListener("click",()=>{
+        btn.closest(".modal").classList.remove("active");
+    });
+});
+
+/* ---------- CLICK OUTSIDE ---------- */
+
+window.addEventListener("click",(e)=>{
+    if(e.target===contactModal){
+        closeContact();
+    }
+
+    if(e.target===lineModal){
+        closeLine();
+    }
+});
+
+/* ---------- ESC ---------- */
+
+document.addEventListener("keydown",(e)=>{
+    if(e.key==="Escape"){
+        closeContact();
+        closeLine();
+    }
+});
+</script>
+<footer class="footer">
+  <p>
+    © 2026 Kantaphon Leng Portfolio
+  </p>
+</footer>
 </body>
 </html>
