@@ -733,28 +733,32 @@ min-height: 90vh;
     transform:translateY(0) scale(1);
 }
 
-.project-link {
-  display: block;      
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 5;
+.project-link{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    position:relative;
+    z-index:5;
+    text-decoration:none;
 }
 
-.project-image {
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 5px;
-  border: 1px solid #333;
-  transition: transform 0.3s ease;
-  display: block;
-  margin: 0 auto;
+.project-image{
+    width:min(100%,300px);
+    max-width:100%;
+    aspect-ratio:1/1;
+    height:auto;
+    object-fit:cover;
+    object-position:center;
+    border-radius:12px;
+    border:1px solid rgba(183,17,224,.35);
+    transition:transform .3s ease;
+    display:block;
+    margin:0 auto;
 }
 
-
-.project-image:hover {
-  transform: scale(1.05);
+.project-image:hover{
+    transform:scale(1.05);
 }
 
 @keyframes serviceFloat{
@@ -794,4 +798,30 @@ min-height: 90vh;
     border-top:1px solid rgba(183,17,224,.2);
 
     background:#050505;
+}
+
+@media (max-width:440px){
+
+    .Projects-container .service-card{
+        padding:24px 18px;
+        width:100%;
+        max-width:360px;
+        margin:0 auto;
+    }
+
+    .project-link{
+        width:100%;
+        display:flex;
+        justify-content:center;
+    }
+
+    .project-image{
+        width:100%;
+        max-width:260px;
+        height:auto;
+        aspect-ratio:1/1;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
 }
