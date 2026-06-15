@@ -225,6 +225,7 @@
   </h2>
   
   <div class="Projects-container">
+
     <div class="service-card" data-aos="fade-up" data-aos-delay="100">
 
       <a href="https://rayttpe.github.io/Thai-green-compliance/index.html" target="_blank" class="project-link">
@@ -234,43 +235,53 @@
       <h3>E-commerce</h3>
       <p>
         ตัวอย่างเว็บ E-commerce (คลิ๊กที่รูปเพื่อเยี่ยมชม) 
-        (กำลังตบแต่ง) 
+        หน้าร้านค้าพร้อมฐานข้อมูลของใบสั่งซื้อพร้อมระบบล็อคอินที่หมวดหมู่ store (กำลังตบแต่ง) 
         พร้อมดูแลครบวงจร
       </p>
     </div>
+
+    <div class="project-video-card" data-aos="fade-up" data-aos-delay="250">
+
+      <div class="video-card-head">
+        <span>คลิปผลงานAI local host</span>
+        <p>ตัวอย่างเอไอโต้ตอบด้วยเสียงมีความจำและเชื่อมต่อข้อมูลกับโลกอินเตอร์เน็ตได้</p>
+      </div>
+
+      <div class="video-frame">
+        <video
+          id="portfolioVideo"
+          class="project-video"
+          src="B.mp4"
+          autoplay
+          loop
+          playsinline
+          controls
+          preload="auto">
+        </video>
+
+        <button id="videoSoundBtn" class="video-sound-btn" type="button">
+          ▶ เปิดวิดีโอพร้อมเสียง
+        </button>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
   <!-- Contact Section -->
 
 
+
   <div id="contactModal" class="modal" aria-hidden="true">
-      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
-
-          <button class="close" aria-label="Close">&times;</button>
-
-          <h3 id="contactTitle">Contact me</h3>
-
-          <p>📞 Tel:
-              <a href="tel:0971605959">097-160-5959</a>
-          </p>
-
-          <p>📧 Email:
-              <a href="mailto:Kantaphon.masu@bumail.net">
-                  Kantaphon.masu@bumail.net
-              </a>
-          </p>
-
-          <p>🌐 Facebook:
-              <a href="https://www.facebook.com/lang.masuwan/"
-                 target="_blank">
-                 Saravud Ray Masuwan
-              </a>
-          </p>
-
-          <a href="#" class="btn" id="openLineBtn">Add LINE</a>
-
-      </div>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+      <button class="close" aria-label="Close">&times;</button>
+      <h3 id="contactTitle">Contact me</h3>
+      <p>📞 Tel: 097-160-5959</p>
+      <p>📱 Email: Kantaphon.masu@bumail.net</p>
+      <p>🌐 FB: Saravud Ray Masuwan</p>
+      <a href="#" class="btn" id="openLineBtn">Add LINE</a>
+    </div>
   </div>
 
   <div id="lineModal" class="modal" aria-hidden="true">
@@ -412,6 +423,76 @@ document.addEventListener("keydown",(e)=>{
     }
 });
 </script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const video = document.getElementById("portfolioVideo");
+    const soundBtn = document.getElementById("videoSoundBtn");
+
+    if(!video || !soundBtn) return;
+
+    video.muted = false;
+    video.volume = 1;
+
+    function hideSoundButton(){
+        soundBtn.classList.add("hide");
+    }
+
+    function showSoundButton(){
+        soundBtn.classList.remove("hide");
+    }
+
+    function playWithSound(){
+        video.muted = false;
+        video.volume = 1;
+
+        const playPromise = video.play();
+
+        if(playPromise !== undefined){
+            playPromise
+            .then(() => {
+                if(!video.muted){
+                    hideSoundButton();
+                }
+            })
+            .catch(() => {
+                showSoundButton();
+            });
+        }
+    }
+
+    // พยายามเล่นพร้อมเสียงทันที ถ้า browser อนุญาต
+    playWithSound();
+
+    // ถ้า browser บล็อก autoplay เสียง ให้กดปุ่มนี้ครั้งเดียว
+    soundBtn.addEventListener("click", () => {
+        playWithSound();
+    });
+
+    // หลังผู้ใช้คลิกที่หน้าเว็บครั้งแรก ให้ลองเปิดเสียงอัตโนมัติอีกครั้ง
+    document.addEventListener("pointerdown", () => {
+        if(video.paused || video.muted){
+            playWithSound();
+        }
+    }, { once:true });
+
+    video.addEventListener("play", () => {
+        if(!video.muted){
+            hideSoundButton();
+        }
+    });
+
+    video.addEventListener("volumechange", () => {
+        if(video.muted || video.volume === 0){
+            showSoundButton();
+        }else{
+            hideSoundButton();
+        }
+    });
+});
+</script>
+
 <footer class="footer">
   <p>
     © 2026 Kantaphon Leng Portfolio
