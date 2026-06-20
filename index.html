@@ -221,51 +221,102 @@
   <!-- โปรเจค -->
 <section id="projects" class="projects-section">
   <h2 data-aos="zoom-in">
-    <span>My Projects</span> 
+    <span>My Projects</span>
   </h2>
-  
-  <div class="Projects-container">
 
-    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+  <div class="projects-slider-wrap" data-aos="fade-up" data-aos-delay="100">
+    <div class="projects-slider" id="projectsSlider">
 
-      <a href="https://rayttpe.github.io/Thai-green-compliance/index.html" target="_blank" class="project-link">
-        <img src="Web1.png" alt="E-commerce Project" class="project-image">
-      </a>
+      <!-- Slide 1 : E-commerce -->
+      <article class="project-slide active" data-project-slide="1">
+        <div class="project-showcase-card">
+          <a href="https://rayttpe.github.io/Thai-green-compliance/index.html" target="_blank" class="project-link">
+            <img src="Web1.png" alt="E-commerce Project" class="project-showcase-image">
+          </a>
 
-      <h3>E-commerce</h3>
-      <p>
-        ตัวอย่างเว็บ E-commerce (คลิ๊กที่รูปเพื่อเยี่ยมชม) 
-        หน้าร้านค้าพร้อมฐานข้อมูลของใบสั่งซื้อพร้อมระบบล็อคอินที่หมวดหมู่ store (กำลังตบแต่ง) 
-        พร้อมดูแลครบวงจร
-      </p>
+          <div class="project-showcase-content">
+            <span class="project-tag">Web Application</span>
+            <h3>E-commerce Website</h3>
+            <p>
+              ตัวอย่างเว็บ E-commerce พร้อมหน้าร้านค้า(อยู่หมวดหมู่ store) ระบบ Login/Register,
+              Cart/Checkout, Database และ Dashboard สำหรับสรุปข้อมูลร้านค้า
+            </p>
+            <a href="https://rayttpe.github.io/Thai-green-compliance/index.html" target="_blank" class="project-action">
+              เปิดดูเว็บไซต์
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-slide" data-project-slide="2">
+        <div class="project-video-card">
+
+          <div class="video-card-head">
+            <span>AI LOCAL HOST</span>
+            <h3>Voice AI Assistant</h3>
+            <p>
+              ตัวอย่าง AI ที่สามารถโต้ตอบด้วยเสียง มีระบบความจำ
+              และเชื่อมต่อข้อมูลกับโลกอินเทอร์เน็ตได้
+            </p>
+          </div>
+
+          <div class="video-frame">
+            <video
+              id="portfolioVideo"
+              class="project-video"
+              src="https://res.cloudinary.com/derafrn7h/video/upload/v1781510682/F_wocw2c.mp4"
+              autoplay
+              loop
+              playsinline
+              controls
+              preload="auto">
+            </video>
+
+            <button id="videoSoundBtn" class="video-sound-btn" type="button">
+              ▶ เปิดวิดีโอพร้อมเสียง
+            </button>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- Slide 3 : Bright AI Assistant -->
+      <article class="project-slide" data-project-slide="3">
+        <div class="project-showcase-card project-ai-card">
+          <a href="https://rayttpe.github.io/Bright-Ai-Assistant/" target="_blank" class="project-link">
+            <img
+              src="BrightAI.png"
+              alt="Bright AI Assistant"
+              class="project-showcase-image"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="project-fallback">
+              <i class="fa-solid fa-robot"></i>
+              <strong>Bright AI Assistant</strong>
+              <small>Flask API • Ollama • Memory</small>
+            </div>
+          </a>
+
+          <div class="project-showcase-content">
+            <span class="project-tag">AI Assistant</span>
+            <h3>Bright AI Assistant</h3>
+            <p>
+              เว็บแชทบอท AI ที่พัฒนาด้วย Flask API, Ollama และระบบ Memory
+              มี Login/Register, Chat History และรองรับการต่อยอดเป็น AI Assistant ออนไลน์
+            </p>
+            <a href="https://rayttpe.github.io/Bright-Ai-Assistant/" target="_blank" class="project-action">
+              เปิดดูเว็บไซต์
+            </a>
+          </div>
+        </div>
+      </article>
+
     </div>
 
-    <div class="project-video-card" data-aos="fade-up" data-aos-delay="250">
-
-      <div class="video-card-head">
-        <span>คลิปผลงานAI local host</span>
-        <p>ตัวอย่างเอไอโต้ตอบด้วยเสียงมีความจำและเชื่อมต่อข้อมูลกับโลกอินเตอร์เน็ตได้</p>
-      </div>
-
-      <div class="video-frame">
-        <video
-          id="portfolioVideo"
-          class="project-video"
-          src="https://res.cloudinary.com/derafrn7h/video/upload/v1781510682/F_wocw2c.mp4"
-          autoplay
-          loop
-          playsinline
-          controls
-          preload="auto">
-        </video>
-
-        <button id="videoSoundBtn" class="video-sound-btn" type="button">
-          ▶ เปิดวิดีโอพร้อมเสียง
-        </button>
-      </div>
-
+    <div class="project-dots" aria-label="Project slide controls">
+      <button class="project-dot active" type="button" data-slide="1" aria-label="ดูผลงานที่ 1">1</button>
+      <button class="project-dot" type="button" data-slide="2" aria-label="ดูผลงานที่ 2">2</button>
+      <button class="project-dot" type="button" data-slide="3" aria-label="ดูผลงานที่ 3">3</button>
     </div>
-
   </div>
 </section>
 
@@ -277,9 +328,25 @@
     <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
       <button class="close" aria-label="Close">&times;</button>
       <h3 id="contactTitle">Contact me</h3>
-      <p>📞 Tel: 097-160-5959</p>
-      <p>📱 Email: Kantaphon.masu@bumail.net</p>
-      <p>🌐 FB: Saravud Ray Masuwan</p>
+
+      <p>
+        <a class="contact-link" href="tel:+66971605959">
+          <span>📞</span> Tel: 097-160-5959
+        </a>
+      </p>
+
+      <p>
+        <a class="contact-link" href="mailto:Kantaphon.masu@bumail.net?subject=Contact%20from%20Portfolio">
+          <span>📱</span> Email: Kantaphon.masu@bumail.net
+        </a>
+      </p>
+
+      <p>
+        <a class="contact-link" href="https://www.facebook.com/lang.masuwan/" target="_blank" rel="noopener">
+          <span>🌐</span> FB: Saravud Ray Masuwan
+        </a>
+      </p>
+
       <a href="#" class="btn" id="openLineBtn">Add LINE</a>
     </div>
   </div>
@@ -489,6 +556,40 @@ document.addEventListener("DOMContentLoaded", () => {
         }else{
             hideSoundButton();
         }
+    });
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const projectSlides = document.querySelectorAll(".project-slide");
+    const projectDots = document.querySelectorAll(".project-dot");
+    const video = document.getElementById("portfolioVideo");
+
+    function showProjectSlide(slideNumber){
+        projectSlides.forEach(slide => {
+            const isActive = slide.dataset.projectSlide === String(slideNumber);
+            slide.classList.toggle("active", isActive);
+        });
+
+        projectDots.forEach(dot => {
+            dot.classList.toggle("active", dot.dataset.slide === String(slideNumber));
+        });
+
+        if(video){
+            if(String(slideNumber) === "2"){
+                video.play().catch(() => {});
+            }else{
+                video.pause();
+            }
+        }
+    }
+
+    projectDots.forEach(dot => {
+        dot.addEventListener("click", () => {
+            showProjectSlide(dot.dataset.slide);
+        });
     });
 });
 </script>
