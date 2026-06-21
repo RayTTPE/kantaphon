@@ -250,7 +250,7 @@
 
       <!-- Slide 2 : AI Voice Demo Video -->
       <article class="project-slide" data-project-slide="2">
-        <div class="project-video-card project-cloudinary-card">
+        <div class="project-video-card">
 
           <div class="video-card-head">
             <span>AI LOCAL HOST</span>
@@ -261,22 +261,21 @@
             </p>
           </div>
 
-          <div class="video-frame cloudinary-frame">
-            <iframe
+          <div class="video-frame">
+            <video
               id="portfolioVideo"
-              class="project-iframe"
-              title="Bright AI Voice Assistant"
-              src="https://player.cloudinary.com/embed/?cloud_name=derafrn7h&public_id=F_wocw2c&profile=cld-default"
-              allow="autoplay; fullscreen"
-              allowfullscreen>
-              frameborder="0">
-            </iframe>
-          </div>
-          </a>
+              class="project-video"
+              src="https://res.cloudinary.com/derafrn7h/video/upload/v1781510682/F_wocw2c.mp4"
+              loop
+              playsinline
+              controls
+              preload="metadata">
+            </video>
 
-          <p class="project-note">
-            Bright AI Voice Assistant local host with memories form SQL+database
-          </p>
+            <button id="videoSoundBtn" class="video-sound-btn" type="button">
+              ▶ กดเพื่อเล่นวิดีโอ
+            </button>
+          </div>
 
         </div>
       </article>
@@ -540,6 +539,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if(!video || !soundBtn) return;
 
+    // ไม่ให้วิดีโอโหลดหนัก/เล่นเองตอนเปิดหน้าเว็บ
+    video.pause();
     video.muted = false;
     video.volume = 1;
 
@@ -551,53 +552,15 @@ document.addEventListener("DOMContentLoaded", () => {
         soundBtn.classList.remove("hide");
     }
 
-    function playWithSound(){
+    soundBtn.addEventListener("click", () => {
         video.muted = false;
         video.volume = 1;
-
-        const playPromise = video.play();
-
-        if(playPromise !== undefined){
-            playPromise
-            .then(() => {
-                if(!video.muted){
-                    hideSoundButton();
-                }
-            })
-            .catch(() => {
-                showSoundButton();
-            });
-        }
-    }
-
-    // พยายามเล่นพร้อมเสียงทันที ถ้า browser อนุญาต
-    playWithSound();
-
-    // ถ้า browser บล็อก autoplay เสียง ให้กดปุ่มนี้ครั้งเดียว
-    soundBtn.addEventListener("click", () => {
-        playWithSound();
+        video.play().then(hideSoundButton).catch(showSoundButton);
     });
 
-    // หลังผู้ใช้คลิกที่หน้าเว็บครั้งแรก ให้ลองเปิดเสียงอัตโนมัติอีกครั้ง
-    document.addEventListener("pointerdown", () => {
-        if(video.paused || video.muted){
-            playWithSound();
-        }
-    }, { once:true });
-
-    video.addEventListener("play", () => {
-        if(!video.muted){
-            hideSoundButton();
-        }
-    });
-
-    video.addEventListener("volumechange", () => {
-        if(video.muted || video.volume === 0){
-            showSoundButton();
-        }else{
-            hideSoundButton();
-        }
-    });
+    video.addEventListener("play", hideSoundButton);
+    video.addEventListener("pause", showSoundButton);
+    video.addEventListener("ended", showSoundButton);
 });
 </script>
 
@@ -618,10 +581,12 @@ document.addEventListener("DOMContentLoaded", () => {
             dot.classList.toggle("active", dot.dataset.slide === String(slideNumber));
         });
 
-        if(String(slideNumber) === "2"){
+        if(video){
+            // ไม่ให้ Slide 2 เล่นเองตอนกดเลข 2
+            // และถ้าเลื่อนไป Slide อื่น ให้หยุดวิดีโอทันที
             video.pause();
-            video.currentTime = 0;
         }
+    }
 
     projectDots.forEach(dot => {
         dot.addEventListener("click", () => {
