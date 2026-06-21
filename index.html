@@ -250,7 +250,7 @@
 
       <!-- Slide 2 : AI Voice Demo Video -->
       <article class="project-slide" data-project-slide="2">
-        <div class="project-video-card">
+        <div class="project-video-card project-cloudinary-card">
 
           <div class="video-card-head">
             <span>AI LOCAL HOST</span>
@@ -261,22 +261,22 @@
             </p>
           </div>
 
-          <div class="video-frame">
-            <video
+          <div class="video-frame cloudinary-frame">
+            <iframe
               id="portfolioVideo"
-              class="project-video"
-              src="https://res.cloudinary.com/derafrn7h/video/upload/v1781510682/F_wocw2c.mp4"
-              autoplay
-              loop
-              playsinline
-              controls
-              preload="auto">
-            </video>
-
-            <button id="videoSoundBtn" class="video-sound-btn" type="button">
-              ▶ เปิดวิดีโอพร้อมเสียง
-            </button>
+              class="project-iframe"
+              title="Bright AI Voice Assistant"
+              src="https://player.cloudinary.com/embed/?cloud_name=derafrn7h&public_id=F_wocw2c&profile=cld-default"
+              allow="autoplay; fullscreen"
+              allowfullscreen>
+              frameborder="0">
+            </iframe>
           </div>
+          </a>
+
+          <p class="project-note">
+            Bright AI Voice Assistant local host with memories form SQL+database
+          </p>
 
         </div>
       </article>
@@ -618,14 +618,10 @@ document.addEventListener("DOMContentLoaded", () => {
             dot.classList.toggle("active", dot.dataset.slide === String(slideNumber));
         });
 
-        if(video){
-            if(String(slideNumber) === "2"){
-                video.play().catch(() => {});
-            }else{
-                video.pause();
-            }
+        if(String(slideNumber) === "2"){
+            video.pause();
+            video.currentTime = 0;
         }
-    }
 
     projectDots.forEach(dot => {
         dot.addEventListener("click", () => {
